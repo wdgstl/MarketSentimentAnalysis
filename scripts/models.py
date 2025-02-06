@@ -25,7 +25,6 @@ def get_sentiment_score(message):
     score = float(response.choices[0].message.content.strip())
     return score
 
-# Example usage
 message = "Dow Rises Over 200 Points Ahead Of Inflation, Earnings Data: Greed Index Remains In 'Fear' Zone"
 sentiment_score = get_sentiment_score(message)
 print(f"Sentiment Score: {sentiment_score}")
