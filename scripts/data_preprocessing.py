@@ -8,16 +8,13 @@ def aggregate_articles(path_to_csv):
     df.drop("headline", axis=1, inplace=True)
     df.drop("summary", axis=1, inplace=True)
     df_aggregated = df.groupby("date", as_index=False).agg({"text": list})
-
-    print(df_aggregated.info)
-
     df_aggregated.to_csv("new_data_processed.csv", index=False)  
     
 
 def fix_prices_dates(path_to_csv):
     df = pd.read_csv(path_to_csv)
     df['date'] = df['date'].str[:10]
-    print(df.info)
+    df.to_csv("price_data_processed.csv", index=False)  
 
 
 
