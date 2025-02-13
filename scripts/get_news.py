@@ -13,20 +13,14 @@ except ImportError:
     URL = os.getenv("URL", "https://data.alpaca.markets/v1beta1/news")
 
 from client import Client
-# from pushover import pushover  # Uncomment if using pushover notifications
-
-# define constant for stream URL
-# STREAM_URL = 'wss://stream.data.alpaca.markets/v1beta1/news'
 
 # initialize the client using the credentials
 client = Client(API_KEY, SECRET_KEY, URL)
 rest_client = client.api
-# push = pushover(PUSH_API_TOKEN, USER_KEY)  # Uncomment if needed
 
 # generate date strings "06" to "31" for January 2025.
 dates = [f"{day:02d}" for day in range(6, 32)]
 TIMEFRAME = "1D"
-
 
 def fetch_news(portfolio):
     """
@@ -66,7 +60,6 @@ def fetch_prices(portfolio):
 
 def main():
     SYMBOLS = ['NVDA']
-
     # --- fetch news data ---
     news_agg = fetch_news(SYMBOLS)
     news_data = []
