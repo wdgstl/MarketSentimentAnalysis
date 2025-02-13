@@ -79,7 +79,8 @@ def main():
             })
 
     df_news = pd.DataFrame(news_data)
-    df_news.to_csv("news_data.csv", index=False)
+    file_path = os.path.join("data", "news_data.csv")
+    df_news.to_csv(file_path, index=False)
     print("Created news_data.csv with", len(df_news), "records.")
 
     # --- fetch prices data ---
@@ -93,8 +94,12 @@ def main():
             })
 
     df_prices = pd.DataFrame(prices_data)
-    df_prices.to_csv("prices_data.csv", index=False)
-    print("Created prices_data.csv with", len(df_prices), "records.")
+    df_prices['date'] = df_prices['date'].astype(str)
+    df_prices['date'] = df_prices['date'].str[:10]
+
+    file_path = os.path.join("data", "prices_data.csv")
+    df_prices.to_csv(file_path, index=False)
+    print("Created prices_data.csv with", len(df_news), "records.")
 
 
 if __name__ == "__main__":
