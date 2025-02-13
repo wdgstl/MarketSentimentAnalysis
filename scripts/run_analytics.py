@@ -4,10 +4,6 @@ import os
 import matplotlib.pyplot as plt
 import numpy as np 
 
-import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
-from sklearn.preprocessing import MinMaxScaler
 
 def plot_time_series(path):
     df = pd.read_csv(path)
@@ -28,6 +24,7 @@ def plot_time_series(path):
     plt.savefig(os.path.join("output", "time_series_plot.png"), bbox_inches="tight")
     plt.close()  
     print(f"Time series plot saved as {os.path.join("output", "time_series_plot.png")}")
+
 
 def plot_correlation(path):
     df = pd.read_csv(path)

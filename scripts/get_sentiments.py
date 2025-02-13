@@ -33,7 +33,7 @@ def get_sentiment_score(docs, dates):
     score = float(response.choices[0].message.content.strip())
     return score
 
-def read_data(path): #returns list of list of docs 
+def read_data(path): # returns list of list of docs 
     df = pd.read_csv(path)
     df["text"] = df["text"].apply(ast.literal_eval)  
     return df["text"], df["date"]
