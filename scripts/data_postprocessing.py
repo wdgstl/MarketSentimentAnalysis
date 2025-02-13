@@ -19,7 +19,7 @@ def shift_prices_down(df):
     return df
 
 def main():
-    merged_df = merge_dfs(os.path.join("data", "sentiment_scores.csv"), os.path.join("data", "prices_data_processed.csv"))
+    merged_df = merge_dfs(os.path.join("data", "sentiment_scores.csv"), os.path.join("data", "prices_data.csv"))
     adjusted_df = shift_prices_down(merged_df)
 
 if __name__ == "__main__":

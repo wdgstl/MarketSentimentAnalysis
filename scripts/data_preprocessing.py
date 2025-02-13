@@ -22,16 +22,16 @@ def aggregate_articles(path_to_csv):
     print("Created new_data_processed.csv with", len(df_aggregated), "records.")
 
     
-def fix_prices_dates(path_to_csv):
-    df = pd.read_csv(path_to_csv)
-    df['date'] = df['date'].str[:10]
-    file_path = os.path.join("data", "prices_data_processed.csv")
-    df.to_csv(file_path, index=False)  
-    print("Created prices_data_processed.csv with", len(df), "records.")
+# def fix_prices_dates(path_to_csv):
+#     df = pd.read_csv(path_to_csv)
+#     df['date'] = df['date'].str[:10]
+#     file_path = os.path.join("data", "prices_data_processed.csv")
+#     df.to_csv(file_path, index=False)  
+#     print("Created prices_data_processed.csv with", len(df), "records.")
 
 def main():
     aggregate_articles(os.path.join("data", "news_data.csv"))
-    fix_prices_dates(os.path.join("data", "prices_data.csv"))
+    # fix_prices_dates(os.path.join("data", "prices_data.csv"))
 
 if __name__ == "__main__":
     main()
