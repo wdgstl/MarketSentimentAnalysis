@@ -2,6 +2,7 @@ import openai
 from keys import OPENAI_KEY
 import pandas as pd
 import ast
+import os
 
 client = openai.OpenAI(api_key=OPENAI_KEY)
 
@@ -37,15 +38,17 @@ def read_data(path): #returns list of list of docs
     df["text"] = df["text"].apply(ast.literal_eval)  
     return df["text"], df["date"]
 
-
-if __name__ == "__main__":
+def main():
     scores = {}
-    docs, dates = read_data('/Users/wdgstl/UVA/DS/MarketSentimentAnalysis/data/new_data_processed.csv')
+    docs, dates = read_data(os.path.join("data", "news_data_processed.csv"))
     for articles, date in zip(docs, dates):
         sentiment_score = get_sentiment_score(articles, date)
         print(f"Sentiment Score: {sentiment_score}, {date}")
         scores[date] = sentiment_score
         df = pd.DataFrame(list(scores.items()), columns=['date', 'Sentiment Score'])
 
-    df.to_csv('/Users/wdgstl/UVA/DS/MarketSentimentAnalysis/data/sentiment_scores.csv', index=False)
+    df.to_csv(os.path.join("data", "sentiment_scores.csv"), index=False)
+
+if __name__ == "__main__":
+    main()
 

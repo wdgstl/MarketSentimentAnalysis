@@ -1,4 +1,5 @@
 import pandas as pd
+import os
 
 def merge_dfs(path1, path2):
     df1 = pd.read_csv(path1)
@@ -14,12 +15,12 @@ def shift_prices_down(df):
     df['Price Delta'] = df['Next Day Price'] - df['price']
     df = df.dropna().reset_index(drop=True)
     df.to_csv("/Users/wdgstl/UVA/DS/MarketSentimentAnalysis/data/scores_with_prices.csv", index=False)
+    print("Created scores_with_prices.csv with", len(df), "records.")
     return df
 
-if __name__ == "__main__":
-    p1 = '/Users/wdgstl/UVA/DS/MarketSentimentAnalysis/data/sentiment_scores.csv'
-    p2 = '/Users/wdgstl/UVA/DS/MarketSentimentAnalysis/data/price_data_processed.csv'
-
-    merged_df = merge_dfs(p1, p2)
-
+def main():
+    merged_df = merge_dfs(os.path.join("data", "sentiment_scores.csv"), os.path.join("data", "prices_data_processed.csv"))
     adjusted_df = shift_prices_down(merged_df)
+
+if __name__ == "__main__":
+   main()
