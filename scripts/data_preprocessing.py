@@ -1,6 +1,7 @@
 import pandas as pd
 from datetime import timedelta
 
+
 def aggregate_articles(path_to_csv):
     df = pd.read_csv(path_to_csv)
     df['date'] = df['date'].str[:10]
@@ -26,4 +27,3 @@ def fix_prices_dates(path_to_csv):
 
 if __name__ == "__main__":
     aggregate_articles('/Users/wdgstl/UVA/DS/MarketSentimentAnalysis/data/news_data.csv')
-    fix_prices_dates('/Users/wdgstl/UVA/DS/MarketSentimentAnalysis/data/prices_data.csv')
