@@ -1,6 +1,13 @@
 # MarketSentimentAnalysis
 ## Repository Contents
 The contents of this repository are: 
+- Data utilized
+- Scripts utilized
+- Dockerfile
+- MIT License
+- Readme
+- Docker composition
+- Required packages
 ### Software and Platform Section
 - Python in Visual Studio Code was used for this project.
 - Add-on packages that need to be installed are:
