@@ -2,7 +2,9 @@
 ## Repository Contents
 The contents of this repository are: 
 - Data utilized
+- Output files
 - Scripts utilized
+- .gitgnore file
 - Dockerfile
 - MIT License
 - Readme
@@ -11,7 +13,8 @@ The contents of this repository are:
 - Bash script to run pipeline
   
 ### Software and Platform Section
-- Python in Visual Studio Code was used for this project.
+- Langauges: Python, Bash Scripting
+- Software: VSCode, Jupyter Notebooks
 - Add-on packages that need to be installed are:
   - alpaca==1.0.0
   - alpaca-py==0.38.0
