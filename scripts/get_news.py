@@ -2,6 +2,10 @@ import os
 import pandas as pd
 from dotenv import load_dotenv
 
+"""
+Fetch news data from ALPACA endpoint 
+"""
+
 # try to import credentials from keys.py; otherwise, load from .env.
 try:
     from keys import API_KEY, SECRET_KEY, URL # type: ignore

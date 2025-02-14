@@ -4,12 +4,18 @@ import pandas as pd
 import ast
 import os
 
+"""
+Use OPENAI API to generate sentiment scores 
+"""
+
 client = openai.OpenAI(api_key=OPENAI_KEY)
 
+#format documents into a better structure for LLM
 def format_docs(docs, dates):
     formatted_docs = "\n\n".join([f"{date} Article {i+1}:\n{doc}" for i, (date, doc) in enumerate(zip(dates, docs))])
     return formatted_docs
 
+#function to prompt gpt-4-turbo with articles
 def get_sentiment_score(docs, dates):
     formatted_docs = format_docs(docs, dates)
     prompt = f"""
@@ -33,12 +39,14 @@ def get_sentiment_score(docs, dates):
     score = float(response.choices[0].message.content.strip())
     return score
 
+
 def read_data(path): # returns list of list of docs 
     df = pd.read_csv(path)
     df["text"] = df["text"].apply(ast.literal_eval)  
     return df["text"], df["date"]
 
 def main():
+    #add scores to dictionary of date: score
     scores = {}
     docs, dates = read_data(os.path.join("data", "news_data_processed.csv"))
     for articles, date in zip(docs, dates):

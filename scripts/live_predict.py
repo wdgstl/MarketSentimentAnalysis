@@ -7,6 +7,11 @@ import ast
 from get_sentiments import *
 from keys import *
 
+"""
+Run live predictions on market data
+"""
+
+#try to import keys
 try:
     from keys import API_KEY, SECRET_KEY, URL  
 except ImportError:
@@ -25,6 +30,7 @@ STREAM_URL = 'wss://stream.data.alpaca.markets/v1beta1/news'
 SYMBOLS = ['NVDA'] 
 FETCH_INTERVAL = 3 * 60 * 60 
 
+#fetch news from the beginning of yesterday to the current time 
 def fetch_news():
     yesterday_start = (datetime.now() - timedelta(days=1)).replace(hour=0, minute=0, second=0, microsecond=0).strftime('%Y-%m-%dT%H:%M:%SZ')
     today = datetime.now().strftime('%Y-%m-%d')
@@ -47,17 +53,18 @@ def fetch_news():
     df_aggregated["text"] = df_aggregated["text"].apply(ast.literal_eval)  
     return df_aggregated
 
-
+#run the sentiment model
 def analyze_sentiment(df):
     score = get_sentiment_score(df["text"], df["date"])
     return score
 
+#format the message to be output
 def format_message(score):
     yesterday_start = (datetime.now() - timedelta(days=1)).replace(hour=0, minute=0, second=0, microsecond=0)
     difference_hours = (datetime.now() - yesterday_start).total_seconds() / 3600  # Corrected calculation
     return f"Market news articles about NVIDIA have a sentiment score of {score} (1=bullish, 0=bearish), over the past {difference_hours:.1f} hours."
 
-
+#loop indefinitely and fetch news and run sentiment every 3 hours 
 def predict():
     while True:
         print("Fetching news...")

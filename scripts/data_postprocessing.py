@@ -1,6 +1,11 @@
 import pandas as pd
 import os
 
+"""
+Post process data for analysis
+"""
+
+#merge the prices dataset with the scores dataset
 def merge_dfs(path1, path2):
     df1 = pd.read_csv(path1)
     df2 = pd.read_csv(path2)
@@ -9,6 +14,7 @@ def merge_dfs(path1, path2):
     merged_df = pd.merge(df1, df2, on="date", how="inner")
     return merged_df
 
+#adjust the dataset such that a row contains the current day score, along with the next day opening price
 def shift_prices_down(df):
     df = df.copy()  
     df['Next Day Price'] = df['price'].shift(-1)

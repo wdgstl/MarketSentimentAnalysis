@@ -4,7 +4,11 @@ import os
 import matplotlib.pyplot as plt
 import numpy as np 
 
+"""
+Run and plot analytics on final dataset
+"""
 
+#generate a time series model: Sentiment Scores and Opening Day Prices
 def plot_time_series(path):
     df = pd.read_csv(path)
     scaler = MinMaxScaler()
@@ -26,6 +30,7 @@ def plot_time_series(path):
     print(f"Time series plot saved as {os.path.join("output", "time_series_plot.png")}")
 
 
+#generate Pearson correlation coefficient and scatterplot 
 def plot_correlation(path):
     df = pd.read_csv(path)
     scaler = MinMaxScaler()
