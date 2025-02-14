@@ -62,4 +62,7 @@ MarketSentimentAnalysis/ │-- data/ │ │-- january_news.json │ │-- new_d
    - Next, run python3 get_sentiments.py from inside the scripts directory
    - Then, run python3 post_processing.py from inside the scripts directory
    - Finally, run python3 run_analytics.py to generate the analysis (time series graph and correlation), view output inside the output directory
-   
+
+### Instructions for Live Analysis
+1) Build and run Docker container
+   - run in terminal: docker compose up --build
