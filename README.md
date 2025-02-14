@@ -38,6 +38,12 @@ The contents of this repository are:
   
 MarketSentimentAnalysis/
 ├── data/
+│-- data/
+│   │-- january_news.json
+│   │-- new_data_processed.csv
+│   │-- news_data.csv
+│   │-- price_data_processed.csv
+│   │-- prices_data.csv 
 ├── output/
 ├── scripts/
 ├── .gitignore
