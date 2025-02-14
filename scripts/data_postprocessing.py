@@ -14,7 +14,7 @@ def shift_prices_down(df):
     df['Next Day Price'] = df['price'].shift(-1)
     df['Price Delta'] = df['Next Day Price'] - df['price']
     df = df.dropna().reset_index(drop=True)
-    df.to_csv(os.path.join("data", "scores_with_prices.csv", index=False))
+    df.to_csv(os.path.join("data", "scores_with_prices.csv"), index=False)
     print("Created scores_with_prices.csv with", len(df), "records.")
     return df
 
