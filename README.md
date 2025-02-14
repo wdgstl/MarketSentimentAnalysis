@@ -35,21 +35,11 @@ The contents of this repository are:
 - The platform used was Mac.
 ### A Map of our Documentation
 - The Project Folder is structured:
-'''
+  
 MarketSentimentAnalysis/
 ├── data/
-│   ├── raw/
-│   ├── processed/
-│   ├── external/
 ├── output/
-│   ├── logs/
-│   ├── reports/
-│   ├── models/
 ├── scripts/
-│   ├── data_preprocessing.py
-│   ├── sentiment_analysis.py
-│   ├── model_training.py
-│   ├── visualization.py
 ├── .gitignore
 ├── docker-compose.yaml
 ├── Dockerfile
@@ -57,7 +47,6 @@ MarketSentimentAnalysis/
 ├── README.md
 ├── requirements.txt
 ├── run.sh
-'''
 
 
 ### Instructions for reproducing our results
