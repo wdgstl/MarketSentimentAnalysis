@@ -8,6 +8,8 @@ The contents of this repository are:
 - Readme
 - Docker composition
 - Required packages
+- Bash script to run pipeline
+  
 ### Software and Platform Section
 - Python in Visual Studio Code was used for this project.
 - Add-on packages that need to be installed are:
