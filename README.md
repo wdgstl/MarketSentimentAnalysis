@@ -49,7 +49,7 @@ MarketSentimentAnalysis/
 ├── run.sh
 
 
-### Instructions for reproducing our results
+### Instructions for reproducing our results - Note YOU MUST HAVE AN OPENAI API KEY TO REPRODUCE ANY ANALYSIS
 1) Option 1 - Use run.sh bash script
    - Clone github repository
    - Create keys.py in scripts directory with OPENAI_KEY='YOUROPENAIKEY'
