@@ -35,9 +35,30 @@ The contents of this repository are:
 - The platform used was Mac.
 ### A Map of our Documentation
 - The Project Folder is structured:
-```
-MarketSentimentAnalysis/ │-- data/ │ │-- january_news.json │ │-- new_data_processed.csv │ │-- news_data.csv │ │-- price_data_processed.csv │ │-- prices_data.csv │ │-- scripts/ │ │-- pycache/ │ │ │-- client.cpython-311.pyc │ │ │-- client.cpython-313.pyc │ │ │-- keys.cpython-311.pyc │ │ │-- keys.cpython-313.pyc │ │ │-- pushover.cpython-311.pyc │ │ │-- pushover.cpython-313.pyc │ │-- EDA.ipynb │ │-- client.py │ │-- data_preprocessing.py │ │-- get_news.py │ │-- main.py │ │-- models.py │ │-- pushover.py │ │-- .gitignore │-- Dockerfile │-- LICENSE │-- README.md │-- docker-compose.yaml │-- requirements.txt
-```
+
+MarketSentimentAnalysis/
+│── data/
+│   ├── raw/
+│   ├── processed/
+│   ├── external/
+│── output/
+│   ├── logs/
+│   ├── reports/
+│   ├── models/
+│── scripts/
+│   ├── data_preprocessing.py
+│   ├── sentiment_analysis.py
+│   ├── model_training.py
+│   ├── visualization.py
+│── .gitignore
+│── docker-compose.yaml
+│── Dockerfile
+│── LICENSE
+│── README.md
+│── requirements.txt
+│── run.sh
+
+
 ### Instructions for reproducing our results
 1) Option 1 - Use run.sh bash script
    - Clone github repository
