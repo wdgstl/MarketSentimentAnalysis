@@ -29,13 +29,14 @@ def get_sentiment_score(docs, dates):
 
     Provide only the sentiment score as a floating point number.
     """
-
+    #Make an API call to gpt-4-turbo and prompt it
     response = client.chat.completions.create(
         model="gpt-4-turbo",
         messages=[{"role": "user", "content": prompt}],
         temperature=0
     )
 
+    #cast the response to a float 
     score = float(response.choices[0].message.content.strip())
     return score
 
@@ -49,6 +50,7 @@ def main():
     #add scores to dictionary of date: score
     scores = {}
     docs, dates = read_data(os.path.join("data", "news_data_processed.csv"))
+    #Loop through the articles and dates and get a sentiment score for each date, appending to a scores dictionary 
     for articles, date in zip(docs, dates):
         sentiment_score = get_sentiment_score(articles, date)
         print(f"Sentiment Score: {sentiment_score}, {date}")

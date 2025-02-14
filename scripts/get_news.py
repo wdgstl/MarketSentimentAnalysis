@@ -31,6 +31,7 @@ def fetch_news(portfolio):
     Fetches news for each symbol across the specified dates.
     Returns a list of news lists.
     """
+    #Loop through symbols in portfolio and fetch news using the rest_client for each day in the dates array, append these to an array
     news_agg = []
     for symbol in portfolio:
         for day in dates:
@@ -49,6 +50,8 @@ def fetch_prices(portfolio):
     Fetches price bar data for each symbol in the portfolio across the specified dates.
     Returns a list of price bars lists.
     """
+
+    #Loop through symbols in portfolio and fetch prices using the rest_client for each day in the dates array, append these to an array
     prices_agg = []
     for symbol in portfolio:
         for day in dates:
@@ -64,7 +67,7 @@ def fetch_prices(portfolio):
 
 def main():
     SYMBOLS = ['NVDA']
-    # --- fetch news data ---
+    # --- fetch news data and append to array---
     news_agg = fetch_news(SYMBOLS)
     news_data = []
     for news_list in news_agg:
@@ -80,7 +83,7 @@ def main():
     df_news.to_csv(file_path, index=False)
     print("Created news_data.csv with", len(df_news), "records.")
 
-    # --- fetch prices data ---
+    # --- fetch prices data and append to array---
     prices_agg = fetch_prices(SYMBOLS)
     prices_data = []
     for bars in prices_agg:
@@ -92,6 +95,7 @@ def main():
 
     df_prices = pd.DataFrame(prices_data)
     df_prices['date'] = df_prices['date'].astype(str)
+    #Slice date to only include day, month, year
     df_prices['date'] = df_prices['date'].str[:10]
 
     file_path = os.path.join("data", "prices_data.csv")

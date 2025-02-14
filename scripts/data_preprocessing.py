@@ -23,7 +23,9 @@ def aggregate_articles(path_to_csv):
             return date - timedelta(days=2)
         return date  
     df["date"] = df["date"].apply(adjust_to_friday)
+    #Group by dates such that there is a list of articles for a given date 
     df_aggregated = df.groupby("date", as_index=False).agg({"text": lambda x: list(x)})
+    #Properly create a list of strings for parsing later 
     df_aggregated["text"] = df_aggregated["text"].apply(lambda x: str(x))  
     file_path = os.path.join("data", "news_data_processed.csv")
     df_aggregated.to_csv(file_path, index=False)
