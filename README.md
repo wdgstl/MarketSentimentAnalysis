@@ -37,26 +37,27 @@ The contents of this repository are:
 - The Project Folder is structured:
 
 MarketSentimentAnalysis/
-│── data/
+├── data/
 │   ├── raw/
 │   ├── processed/
 │   ├── external/
-│── output/
+├── output/
 │   ├── logs/
 │   ├── reports/
 │   ├── models/
-│── scripts/
+├── scripts/
 │   ├── data_preprocessing.py
 │   ├── sentiment_analysis.py
 │   ├── model_training.py
 │   ├── visualization.py
-│── .gitignore
-│── docker-compose.yaml
-│── Dockerfile
-│── LICENSE
-│── README.md
-│── requirements.txt
-│── run.sh
+├── .gitignore
+├── docker-compose.yaml
+├── Dockerfile
+├── LICENSE
+├── README.md
+├── requirements.txt
+├── run.sh
+
 
 
 ### Instructions for reproducing our results
