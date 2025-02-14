@@ -35,7 +35,7 @@ The contents of this repository are:
 - The platform used was Mac.
 ### A Map of our Documentation
 - The Project Folder is structured:
-
+'''
 MarketSentimentAnalysis/
 ├── data/
 │   ├── raw/
@@ -57,7 +57,7 @@ MarketSentimentAnalysis/
 ├── README.md
 ├── requirements.txt
 ├── run.sh
-
+'''
 
 
 ### Instructions for reproducing our results
