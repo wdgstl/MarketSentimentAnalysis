@@ -12,8 +12,12 @@ source $VENV_DIR/bin/activate
 echo "Installing required Python packages..."
 pip3 install -r requirements.txt
 
-echo "Scraping Market Data Using Alpaca API"
-python3 scripts/get_news.py
+if [ ! -f "data/prices_data.csv" ] || [ ! -f "data/news_data.csv" ]; then
+    echo "Scraping Market Data Using Alpaca API"
+    python3 scripts/get_news.py
+else
+    echo "Market data already exists. Skipping scraping."
+fi
 
 echo "Preprocessing Market Data"
 python3 scripts/data_preprocessing.py
