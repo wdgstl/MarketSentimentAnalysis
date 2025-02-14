@@ -36,6 +36,8 @@ MarketSentimentAnalysis/ │-- data/ │ │-- january_news.json │ │-- new_d
 ### Instructions for reproducing our results
 1) EASIEST WAY - Use run.sh bash script
    - Clone github repository
+   - Create keys.py in scripts directory with OPENAI_KEY='OPENAIKEY'
+   - If you have ALPACA API Keys and want to scrape the data yourself, delete all data in the data directory and add the following to keys.py: SECRET_KEY='ALPACA SECRET KEY', API_KEY='ALPACA API KEY', URL='https://api.alpaca.markets'
    - Change permissions of run.sh: run chmod 700 run.sh in terminal
    - Run run.sh in terminal: ./run.sh
    - View time series graph and correlation inside the output directory
