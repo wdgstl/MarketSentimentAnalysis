@@ -35,33 +35,48 @@ The contents of this repository are:
 - The platform used was Mac.
 ### A Map of our Documentation
 - The Project Folder is structured:
-
-'''
+  
 MarketSentimentAnalysis/
-│── data/
-│   ├── raw/
-│   ├── processed/
-│   ├── external/
-│── output/
-│   ├── logs/
-│   ├── reports/
-│   ├── models/
-│── scripts/
-│   ├── data_preprocessing.py
-│   ├── sentiment_analysis.py
-│   ├── model_training.py
-│   ├── visualization.py
-│── .gitignore
-│── docker-compose.yaml
-│── Dockerfile
-│── LICENSE
-│── README.md
-│── requirements.txt
-│── run.sh
-'''
+├── data/
+|   |-- january_news.json
+|   |-- news_data.csv
+|   |-- news_data_processed.csv
+|   |-- prices_data.csv
+|   |-- scores_with_prices.csv
+|   |-- sentiment_scores.csv
+├── output/
+|   |-- Data Appendix.pdf
+|   |-- average_length_of_headline_and_summary_combined_by_word_counts.png
+|   |-- correlation_plot.png
+|   |-- january_2025_frequency_of_nvidia_articles_published_each_day_by_headline_and_summary.png
+|   |-- january_2025_nvidia_news_sentiment_score_histogram.png
+|   |-- january_2025_nvidia_opening_prices.png
+|   |-- january_2025_nvidia_stock_price_histogram.png
+|   |-- numbers_of_articles_per_day.png
+|   |-- time_series_plot.png
+|   |-- top_ten_most_frequently_occuring_words.png
+├── scripts/
+|   |-- __pycache__/
+|   |   |-- client.cpython-313.pyc
+|   |-- EDA.ipynb
+|   |-- client.py
+|   |-- data_appendix_script.ipynb
+|   |-- data_postprocesing.py
+|   |-- data_preprocessing.py
+|   |-- get_news.py
+|   |-- get_sentiments.py
+|   |-- live_predict.py
+|   |-- run_analytics.py
+├── .gitignore
+├── docker-compose.yaml
+├── Dockerfile
+├── LICENSE
+├── README.md
+├── requirements.txt
+├── run.sh
 
 
-### Instructions for reproducing our results
+### Instructions for reproducing our results - Note YOU MUST HAVE AN OPENAI API KEY TO REPRODUCE ANY ANALYSIS
 1) Option 1 - Use run.sh bash script
    - Clone github repository
    - Create keys.py in scripts directory with OPENAI_KEY='YOUROPENAIKEY'
