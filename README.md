@@ -36,6 +36,7 @@ The contents of this repository are:
 ### A Map of our Documentation
 - The Project Folder is structured:
 
+'''
 MarketSentimentAnalysis/
 │── data/
 │   ├── raw/
@@ -57,6 +58,7 @@ MarketSentimentAnalysis/
 │── README.md
 │── requirements.txt
 │── run.sh
+'''
 
 
 ### Instructions for reproducing our results
